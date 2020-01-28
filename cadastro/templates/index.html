@@ -1,12 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+a {
+    text-decoration: none;
+}
+</style>
+</head>
+<body>
+
 <h1>Pessoas Cadastradas</h1>
 
-<ul>
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Sexo</th>
+        <th>E-mail</th>
+        <th>Deletar</th>
+    </tr>
     {% for pessoa in pessoas %}
-    <li>
-        <a href="{% url 'pessoa_update' pessoa.id %}">{{ pessoa }}</a>
-        <a href="{% url 'pessoa_delete' pessoa.id %}"> x </a>
-    </li>
+    <tr>
+        <td><a href="{% url 'pessoa_update' pessoa.id %}">{{ pessoa }}</a></td>
+        <td><a href="{% url 'pessoa_update' pessoa.id %}">{{ pessoa.idade }}</a></td>
+        <td><a href="{% url 'pessoa_update' pessoa.id %}">{{ pessoa.sexo }}</a></td>
+        <td><a href="{% url 'pessoa_update' pessoa.id %}">{{ pessoa.email }}</a></td>
+        <td><a href="{% url 'pessoa_delete' pessoa.id %}"> x </a></td>
+    </tr>
     {% endfor %}
-</ul>
-
+</table>
+<br>
 <a href="{% url 'pessoa_nova' %}">Cadastrar</a>
+
+</body>
+</html>
