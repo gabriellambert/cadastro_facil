@@ -2,7 +2,9 @@
 
 <ul>
     {% for pessoa in pessoas %}
-    <li>{{ pessoa }}</li>
+    <li>
+        <a href="{% url 'pessoa_update' pessoa.id %}">{{ pessoa }}</a>
+    </li>
     {% endfor %}
 </ul>
 

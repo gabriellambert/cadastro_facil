@@ -19,3 +19,17 @@ def pessoa_nova(request):
     else:
         form = PessoaForm()
     return render(request, 'pessoa_edit.html', {'form': form})
+
+
+def pessoa_update(request, id):
+    dados = {}
+    pessoa = Pessoa.objects.get(id=id)
+    form = PessoaForm(request.POST or None, instance=pessoa)
+    dados['pessoa'] = pessoa
+    dados['form'] = form
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        return render(request, 'pessoa_update.html', dados)
