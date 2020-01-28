@@ -1,0 +1,7 @@
+<h2>Nova Pessoa</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Salvar</button>
+</form>
