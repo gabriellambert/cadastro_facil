@@ -33,3 +33,14 @@ def pessoa_update(request, id):
             return redirect('index')
     else:
         return render(request, 'pessoa_update.html', dados)
+
+def pessoa_delete(request, id):
+    pessoa = Pessoa.objects.get(id=id)
+    dados = {
+        'pessoa': pessoa,
+    }
+    if request.method == 'POST':
+        pessoa.delete()
+        return redirect('index')
+    else:
+        return render(request, 'confirmar_delete.html', dados)

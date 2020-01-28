@@ -4,6 +4,7 @@
     {% for pessoa in pessoas %}
     <li>
         <a href="{% url 'pessoa_update' pessoa.id %}">{{ pessoa }}</a>
+        <a href="{% url 'pessoa_delete' pessoa.id %}"> x </a>
     </li>
     {% endfor %}
 </ul>
