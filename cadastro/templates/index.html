@@ -1,1 +1,7 @@
-<h1>Cadastro de Pessoa</h1>
+<h1>Pessoas Cadastradas</h1>
+
+<ul>
+    {% for pessoa in pessoas %}
+    <li>{{ pessoa }}</li>
+    {% endfor %}
+</ul>

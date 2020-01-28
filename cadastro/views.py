@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from .models import Pessoa
 
 def index(request):
-    return render(request, 'index.html')
+    pessoas = Pessoa.objects.all()
+    dados = {
+        'pessoas': pessoas,
+    }
+    return render(request, 'index.html', dados)
